@@ -31,6 +31,8 @@ toast("开始自动收集能量");
 unlock();
 sleep(2000);
 
+
+
 //3、创立一个线程，截图提示，后台点击立即开始（华为手机申请手机截图权限时，需要手动点击“立即开始”），为了方便，我们开辟一个线程来点击
 var thread = threads.start(function() 
 { 
@@ -56,6 +58,8 @@ prepareThings();
 
 //5、关闭3创建的那个线程，后面不要用到就关闭
 thread.interrupt();
+
+
 
 //进入主程序
 mainEntrence();
@@ -371,16 +375,37 @@ function  getHasEnergyfriend(type)
 
     if(p!=null)
     {
-        toastLog("找到了可收取能量的好友");
+        //toastLog("找到了可收取能量的好友");
         return p;
     }
     else 
     {
-        toastLog("此页没有找到可收能量的好友");
+        //toastLog("此页没有找到可收能量的好友");
         return null;
     }
 }
 
+//判断是否收取能量结束
+function  canItEnd() 
+{
+    var img = getCaptureImg();
+    var p=null;
+
+    //判断底部是否到了“没有更多了”的了字
+     p = images.findMultiColors(img, "#999999",[[0, 4, "#F5F5F5"],[0, 10, "#999999"]], {
+        region: [620,2035 , 1, 264]
+    });
+
+    if(p!=null)
+    {
+        return true;
+    }
+    else 
+    {
+        return false;
+    }
+
+}
 //在排行榜页面,循环查找可收集好友
 function enterOthers()
 {
@@ -399,10 +424,18 @@ function enterOthers()
         i++;
 
         //如果连续15次都未检测到可收集好友,无论如何停止查找 
-        if(i>10)
+        if(i>3)
         {
-            toastLog("程序可能出错/收集完成,连续"+i+"次未检测到可收集好友");
-            return false;
+            if(canItEnd() == true)
+            {
+                toastLog("所有好友收集完成");
+                return true;
+            }
+            if(i>15)
+            {
+                toastLog("程序可能出错,连续"+i+"次未检测到可收集好友");
+                return false;
+            }
         }
     }
     
