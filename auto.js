@@ -4,8 +4,8 @@
  * 时间：2020/05/17
  * 版本：V1.0
  * github地址：https://github.com/Xiao-DaJi/alipay_autojs.git
- * 教程地址：想要系统的了解整个过程，如何安装autojs，如何在js上跑这个脚本，请参考我的教程，教程地址：待补充
- * QQ：2314214399 QQ交流群：647558419
+ * 教程地址：想要系统的了解整个过程，如何安装autojs，如何在js上跑这个脚本，请参考我的教程，教程地址：https://m.lizhiweike.com/channel2/887975
+ * QQ：2314214399
  */
 
 
