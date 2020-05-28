@@ -12,11 +12,17 @@
 
 一步一步由简入深讲解怎么实现，从auto.js软件的安装下载，到手机的权限设置，再到脚本代码的讲解都有详细的讲解，除此之外其中还穿插了很多爱华为荣耀V20上实操的视频，让DIY学习者更加快速get技巧。
 
+![img]( https://github.com/Xiao-DaJi/alipay_autojs/blob/master/pic/1.png)
+
 ### auto.js简介
 auto.js其实就是一款安卓的APP，是国内的一个大神的一款APP软件，用来实现自动操作手机，帮忙我们做一些重复的工作，跟按键精灵、脚本精灵一类的软件类似，但是按键精灵和脚本精灵需要手机root才能实现功能，如果你不想或者不知道如何root，那么autojs是你最好的选择。
 
 ### 实现流程图
 
+![img]( https://github.com/Xiao-DaJi/alipay_autojs/blob/master/pic/2.png)
+
+
+![img]( https://github.com/Xiao-DaJi/alipay_autojs/blob/master/pic/%E5%BD%95%E5%88%B6_2020_05_28_13_28_20_709.gif)
 
 ### 源码解析
  > ==代码看不懂？这里有视频教程：https://m.lizhiweike.com/channel2/887975 ，加入QQ群后，狐仙小妲己会为你解答疑惑==
