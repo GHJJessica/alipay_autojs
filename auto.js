@@ -445,7 +445,8 @@ function enterOthers()
     sleep(3000);
     i=0;
 
-    while (!textEndsWith("TA收取你").exists() && !textEndsWith("你收取TA").exists() && i<=10)
+	//支付宝更新，10.1.95适应
+    while (!textEndsWith("发消息").exists() && !textEndsWith("弹幕").exists() && i<=10)
     {
         sleep(1000);
         i++;
