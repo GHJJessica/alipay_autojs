@@ -113,11 +113,17 @@ function mainEntrence()
                 }
                 break;
             case 2:
-                //3、进入到好友的能量主页
+                //3、开始搜集好友能量
                 enterRank();
                 enterOthers();
                 step = 3;
                 sucessFlag = true;
+
+                //20201225支付宝更新修改
+                //3、开始搜集好友能量
+                //CollectFrendsEnergy();
+                //step = 3;
+                //sucessFlag = true;
                 break;
             case 3:
                 //4、收集完成，返回到收集主页面，等待手机自动锁屏
@@ -233,7 +239,7 @@ function enterMyAntForest()
 
     i=0;
     //现在的支付宝没有地图这个控件，改成通知
-    while (!textEndsWith("背包").exists() && !textEndsWith("通知").exists() && i<=10){
+    while (!textEndsWith("最新动态").exists() && i<=10){
         sleep(1000);
         i++;
     }
@@ -445,8 +451,7 @@ function enterOthers()
     sleep(3000);
     i=0;
 
-	//支付宝更新，10.1.95适应
-    while (!textEndsWith("发消息").exists() && !textEndsWith("弹幕").exists() && i<=10)
+    while (!textEndsWith("最新动态").exists()&& i<=10)
     {
         sleep(1000);
         i++;
@@ -521,3 +526,47 @@ function whenComplete()
 var morningTime = "07:18";//自己运动能量生成时间
 var startTime = "07:00";
 var endTime = "7:35";
+
+function CollectFrendsEnergy()
+{
+    var i=0;
+
+    while(1)
+    {
+        i = 0;
+
+        //1、如果找到了“TA收取你”和“找能量”，判断3次
+        while (!textEndsWith("找能量").exists() && !textEndsWith("TA收取你").exists() && i<=3)
+        {
+            sleep(1000);
+            i++;
+            toastLog("1111111");
+        } 
+
+        if(i>=4)
+        {
+            
+            toastLog("能量已经全部收取完成");
+            return true;
+        }
+        else
+        {
+            toastLog("222222");
+
+            //点击“找能量”
+            clickByTextDesc("找能量",0);
+
+            //收取好友能量
+            for(var row=screen_height*0.256;row<screen_height*0.376;row+=80)
+            for(var col=screen_width*0.185;col<screen_width*0.815;col+=80){
+                click(col,row);
+            }
+
+            toastLog("收取完成");
+
+            sleep(1000);
+
+        }
+    }
+ 
+}
